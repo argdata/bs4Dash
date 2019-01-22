@@ -15,6 +15,7 @@ addDeps <- function(x, theme) {
   # put all necessary ressources here
   adminLTE3_js <- "adminlte.js"
   bs4Dash_js <- "bs4Dash.js"
+  relocate_js <- "relocate.js"
   adminLTE3_css <- "adminlte.min.css"
   jquery_ui_js <- "jquery-ui.min.js"
   bootstrap_js <- "bootstrap.bundle.min.js"
@@ -51,7 +52,7 @@ addDeps <- function(x, theme) {
       name = "bs4Dash",
       version = as.character(utils::packageVersion("bs4Dash")),
       src = c(file = system.file("bs4Dash-0.2.0", package = "bs4Dash")),
-      script = bs4Dash_js
+      script = c(bs4Dash_js, relocate_js)
     ),
     # fontawesome
     htmltools::htmlDependency(
