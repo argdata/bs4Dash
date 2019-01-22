@@ -48,6 +48,7 @@ $(function () {
     // get the name of the first selected tab
     // replace the url by the url for shinyapp.io
     window.location.replace(url + tablink + workerId);
+    location.reload();
   }
   
 });
