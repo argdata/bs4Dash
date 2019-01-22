@@ -10,7 +10,7 @@ $(function () {
   if (typeof workerId != 'undefined') {
     // get the initial page url
     // replace the url by the url for shinyapp.io
-    history.pushState(null, null, '/', workerId, '/');
+    window.location.replace(window.location.protocol + "//" + window.location.host + workerId);
   }
   
   
