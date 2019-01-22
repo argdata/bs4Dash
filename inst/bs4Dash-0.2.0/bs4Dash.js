@@ -1,20 +1,5 @@
 $(function () {
   
-  // handle shinyapps.io, RStudio connect and shiny server pro: 
-  // we need to extract the worker id and
-  // paste it in the url so that the apps works correctly
-  
-  // get the  workerId
-  var workerId = $('base').attr('href');
-  // ensure that this code does not run on shiny server/pro and locally
-  if (typeof workerId != 'undefined') {
-    // get the initial page url
-    // replace the url by the url for shinyapp.io
-    console.log(window.location.protocol + "//" + window.location.host + workerId);
-    window.location.replace(window.location.protocol + "//" + window.location.host + "/" + workerId);
-  }
-  
-  
   // Make the dashboard widgets sortable Using jquery UI
   $('.connectedSortable').sortable({
     placeholder         : 'sort-highlight',
@@ -47,4 +32,23 @@ $(function () {
     //$("#mymenu .nav-item:eq(" + $indexPane + ") a").tab("show");
     //$(".tab-pane:eq(" + $indexPane + ")").addClass('active show');
   //}
+  
+  // handle shinyapps.io, RStudio connect and shiny server pro: 
+  // we need to extract the worker id and
+  // paste it in the url so that the apps works correctly
+  
+  // get the  workerId
+  var workerId = $('base').attr('href');
+  var tablink = $('#mymenu .nav-item:eq(0) a').attr('href');
+  // ensure that this code does not run on shiny server open source and locally
+  if (typeof workerId != 'undefined') {
+    // get the initial page url
+    // replace the url by the url for shinyapp.io
+    window.location.replace(
+      window.location.protocol + "//" + 
+      window.location.host + "/" + workerId + 
+      "/" + tablink
+    );
+  }
+  
 });
