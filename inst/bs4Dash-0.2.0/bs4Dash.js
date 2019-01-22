@@ -9,9 +9,8 @@ $(function () {
   // ensure that this code does not run on shiny server/pro and locally
   if (typeof workerId != 'undefined') {
     // get the initial page url
-    var url = window.location.href;
     // replace the url by the url for shinyapp.io
-    window.location.replace(url + workerId);
+    history.pushState(null, null, '/', workerId, '/');
   }
   
   
